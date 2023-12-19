@@ -1,14 +1,21 @@
 "use client";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
 import { useMutation } from "convex/react";
 import {
   ChevronLeft,
   MenuIcon,
+  Plus,
   PlusCircle,
   Search,
   Settings,
+  Trash,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
@@ -17,6 +24,7 @@ import { useMediaQuery } from "usehooks-ts";
 
 import DocumentList from "./document-list";
 import Item from "./item";
+import TrashBox from "./trash-box";
 import UserItem from "./user-item";
 
 const Navigation = () => {
@@ -83,7 +91,7 @@ const Navigation = () => {
       setIsResetting(true);
 
       sideStyle.width = isMobile ? "100%" : "240px";
-      navStyle.setProperty("width", isMobile ? "0" : "calc(100%-240px)");
+      navStyle.setProperty("width", isMobile ? "0" : "calc(100% - 240px)");
       navStyle.setProperty("left", isMobile ? "100%" : "240px");
 
       setTimeout(() => setIsResetting(false), 300);
@@ -145,6 +153,18 @@ const Navigation = () => {
         </div>
         <div className="mt-4">
           <DocumentList />
+          <Item onClick={handleCreate} icon={Plus} label="Add a page" />
+          <Popover>
+            <PopoverTrigger className="mt-4 w-full">
+              <Item label="Trash" icon={Trash} />
+            </PopoverTrigger>
+            <PopoverContent
+              className="w-72 p-0"
+              side={isMobile ? "bottom" : "right"}
+            >
+              <TrashBox />
+            </PopoverContent>
+          </Popover>
         </div>
         <div
           onMouseDown={handleMouseDown}
@@ -160,15 +180,15 @@ const Navigation = () => {
           isMobile && "left-0 w-full",
         )}
       >
-        <nav className="w-full bg-transparent px-3 py-2">
-          {isCollapsed && (
+        {isCollapsed && (
+          <nav className="w-full bg-transparent px-3 py-2">
             <MenuIcon
               onClick={resetWidth}
               role="button"
               className="h-6 w-6 text-muted-foreground"
             />
-          )}
-        </nav>
+          </nav>
+        )}
       </div>
     </>
   );

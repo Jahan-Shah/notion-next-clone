@@ -7,6 +7,7 @@ import { useQuery } from "convex/react";
 import { FileIcon } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
+
 import Item from "./item";
 
 interface DocumentListProps {
@@ -30,8 +31,6 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProps) => {
   const documents = useQuery(api.documents.getSidebar, {
     parentDocument: parentDocumentId,
   });
-
-  console.log(documents);
 
   const onRedirect = (documentId: string) => {
     router.push(`/documents/${documentId}`);
