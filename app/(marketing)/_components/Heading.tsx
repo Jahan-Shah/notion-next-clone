@@ -1,13 +1,13 @@
 "use client";
 
-import Spinner from "@/components/spinner";
+import { Spinner } from "@/components/spinner";
 import { Button } from "@/components/ui/button";
 import { SignUpButton } from "@clerk/clerk-react";
 import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const Heading = () => {
+export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   return (
@@ -44,5 +44,3 @@ const Heading = () => {
     </div>
   );
 };
-
-export default Heading;

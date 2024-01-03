@@ -37,7 +37,7 @@ interface ItemProps {
   onClick?: () => void;
 }
 
-const Item = ({
+export const Item = ({
   id,
   label,
   icon: Icon,
@@ -109,7 +109,7 @@ const Item = ({
       {!!id && (
         <div
           role="button"
-          className="mr-1 h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600"
+          className="mr-1 h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
           onClick={handleExpand}
         >
           <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />
@@ -132,7 +132,7 @@ const Item = ({
             <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
               <div
                 role="button"
-                className="ml-auto h-full rounded-sm opacity-0 hover:bg-neutral-300 group-hover:opacity-100 dark:bg-neutral-600"
+                className="ml-auto h-full rounded-sm opacity-0 hover:bg-neutral-300 group-hover:opacity-100 dark:hover:bg-neutral-600"
               >
                 <MoreHorizontal className="h-4 w-4 text-muted-foreground" />
               </div>
@@ -155,7 +155,7 @@ const Item = ({
           <div
             role="button"
             onClick={onCreate}
-            className="ml-auto h-full rounded-sm opacity-0 hover:bg-neutral-300 group-hover:opacity-100 dark:bg-neutral-600"
+            className="ml-auto h-full rounded-sm opacity-0 hover:bg-neutral-300 group-hover:opacity-100 dark:hover:bg-neutral-600"
           >
             <Plus className="h-4 w-4 text-muted-foreground" />
           </div>
@@ -178,5 +178,3 @@ Item.Skeleton = function ItemSekelton({ level }: { level?: number }) {
     </div>
   );
 };
-
-export default Item;

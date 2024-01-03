@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Heroes = () => {
+export const Heroes = () => {
   return (
     <div className="flex max-w-5xl flex-col items-center justify-center">
       <div className="flex items-center">
@@ -36,5 +36,3 @@ const Heroes = () => {
     </div>
   );
 };
-
-export default Heroes;

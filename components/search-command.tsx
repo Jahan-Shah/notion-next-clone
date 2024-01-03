@@ -16,7 +16,7 @@ import { File } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const SearchCommand = () => {
+export const SearchCommand = () => {
   const { user } = useUser();
   const router = useRouter();
   const documents = useQuery(api.documents.getSearch);
@@ -78,5 +78,3 @@ const SearchCommand = () => {
     </CommandDialog>
   );
 };
-
-export default SearchCommand;
