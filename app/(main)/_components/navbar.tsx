@@ -10,6 +10,7 @@ import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import { useMediaQuery } from "usehooks-ts";
 
+import { Banner } from "./banner";
 import { Title } from "./title";
 
 interface NavbarProps {
@@ -40,18 +41,21 @@ export const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
   return (
     <>
       {shouldShowNav && (
-        <nav className="flex w-full items-center gap-x-4 bg-background px-3 py-2 dark:bg-[#1f1f1f]">
-          {isCollapsed && (
-            <MenuIcon
-              role="button"
-              onClick={onResetWidth}
-              className="h-6 w-6 text-muted-foreground"
-            />
-          )}
-          <div className="flex items-center">
-            <Title initialData={document} />
-          </div>
-        </nav>
+        <>
+          <nav className="flex w-full items-center gap-x-4 bg-background px-3 py-2 dark:bg-[#1f1f1f]">
+            {isCollapsed && (
+              <MenuIcon
+                role="button"
+                onClick={onResetWidth}
+                className="h-6 w-6 text-muted-foreground"
+              />
+            )}
+            <div className="flex w-full items-center justify-between">
+              <Title initialData={document} />
+            </div>
+          </nav>
+          {document.isArchived && <Banner documentId={document._id} />}
+        </>
       )}
     </>
   );
