@@ -61,7 +61,12 @@ export const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
               </div>
             </div>
           </nav>
-          {document.isArchived && <Banner documentId={document._id} />}
+          {document.isArchived && (
+            <Banner
+              documentId={document._id}
+              documentCover={document.coverImg}
+            />
+          )}
         </>
       )}
     </>

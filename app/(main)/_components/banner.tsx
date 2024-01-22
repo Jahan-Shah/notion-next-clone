@@ -4,20 +4,23 @@ import { ConfirmModal } from "@/components/modals/confirm-modal";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
+import { useEdgeStore } from "@/lib/edgestore";
 import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 interface BannerProps {
   documentId: Id<"documents">;
+  documentCover: string | undefined;
 }
 
-export const Banner = ({ documentId }: BannerProps) => {
+export const Banner = ({ documentId, documentCover }: BannerProps) => {
+  const { edgestore } = useEdgeStore();
   const router = useRouter();
   const remove = useMutation(api.documents.remove);
   const restore = useMutation(api.documents.restore);
 
-  const onRemove = () => {
+  const onRemove = async () => {
     const promise = remove({ id: documentId });
 
     toast.promise(promise, {
@@ -25,6 +28,12 @@ export const Banner = ({ documentId }: BannerProps) => {
       success: "Note deleted!",
       error: "Failed to delete note.",
     });
+
+    if (documentCover) {
+      await edgestore.publicFiles.delete({
+        url: documentCover!,
+      });
+    }
 
     router.push("/documents");
   };
