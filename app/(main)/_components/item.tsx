@@ -73,7 +73,7 @@ export const Item = ({
     }).then((documentId) => {
       if (!expanded) onExpand?.();
 
-      // router.push(`/documents/${documentId}`);
+      router.push(`/documents/${documentId}`);
     });
 
     toast.promise(promise, {
@@ -87,7 +87,7 @@ export const Item = ({
     event.stopPropagation();
     if (!id) return;
 
-    const promise = archive({ id });
+    const promise = archive({ id }).then(() => router.push("/documents"));
 
     toast.promise(promise, {
       loading: "Moving to trash...",
@@ -118,7 +118,7 @@ export const Item = ({
       {documentIcon ? (
         <div className="mr-2 shrink-0 text-[18px]">{documentIcon}</div>
       ) : (
-        <Icon className="mr-2 h-[18px] shrink-0 text-muted-foreground" />
+        <Icon className="mr-2 h-[18px] w-[18px] shrink-0 text-muted-foreground" />
       )}
       <span className="truncate">{label}</span>
       {isSearch && (
