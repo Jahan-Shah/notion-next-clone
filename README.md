@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jotion - A Notion Clone
+
+## Overview
+
+Jotion is a project inspired by a YouTube [tutorial](https://www.youtube.com/watch?v=0OaDyjB9Ib8) by [Antonio](https://github.com/AntonioErdeljac). It replicates some of the core functionalities of Notion, a popular note-taking and collaboration platform. Built with Next.js, Convex, Clerk, and Shadcn, Jotion provides a hands-on learning experience for developers interested in exploring these technologies.
+
+## Features
+
+- **Rich Text Editing**: Create and edit documents with a variety of formatting options.
+- **Organization**: Organize your documents using a flexible and intuitive system.
+- **Dark Mode**: Enhance readability and reduce eye strain with a sleek dark mode.
+
+## Technologies Used
+
+- **Next.js**: A React framework for building server-side rendered applications.
+- **Convex**: A state management library for managing global state in React applications.
+- **Clerk**: An authentication and user management library for Next.js applications.
+- **Shadcn**: A library for adding shadow effects to components in React applications.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Before you begin, ensure you have the following installed:
+
+- Node.js
+- npm (Node Package Manager)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Jahan-Shah/notion-next-clone.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd notion-next-clone
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+### Setup .env file
+
+
+```js
+# Deployment used by `npx convex dev`
+CONVEX_DEPLOYMENT=
+NEXT_PUBLIC_CONVEX_URL=
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+EDGE_STORE_ACCESS_KEY=
+EDGE_STORE_SECRET_KEY=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Setup Convex
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npx convex dev
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
 
-## Learn More
+### Start the app
 
-To learn more about Next.js, take a look at the following resources:
+```shell
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   The application will be accessible at `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Acknowledgments
 
-## Deploy on Vercel
+- This project was inspired by a YouTube tutorial, and credit goes to the [Antonio](https://github.com/AntonioErdeljac).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For questions or support, feel free to reach out to [Shah Jahan](mailto:shahjahansarfraz3973@gmail.com).
