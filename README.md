@@ -15,7 +15,7 @@ Jotion is a project inspired by a YouTube [tutorial](https://www.youtube.com/wat
 - **Next.js**: A React framework for building server-side rendered applications.
 - **Convex**: A state management library for managing global state in React applications.
 - **Clerk**: An authentication and user management library for Next.js applications.
-- **Shadcn**: A library for adding shadow effects to components in React applications.
+- **Shadcn**: A library modern UI components.
 
 ## Getting Started
 
